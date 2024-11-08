@@ -1,6 +1,6 @@
 # Q-Learner-Learner
 
-This is a little pet project to visualize how a simple Q-learner works, specifically in the context of a path-finding algorithm. I learned about Q-learning in an online course, but I was pretty disappointing in the visualization provided to study / test Q-learning. So, I decided to re-write a Q-learner from scratch and create a visual environment around it to help visualize and understand the development of Q-tables as an entity explores its environment.
+This is a little pet project to visualize how a simple Q-learner works, specifically in the context of a path-finding algorithm. I learned about Q-learning in an online course, but I was pretty disappointed in the visualization provided to study / test Q-learning. So, I decided to re-write a Q-learner from scratch and create a visual environment around it to help visualize and understand the development of Q-tables as an entity explores its environment.
 
 ![](static/training.gif)
 
