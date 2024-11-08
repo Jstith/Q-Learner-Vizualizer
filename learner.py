@@ -57,8 +57,8 @@ class Q_Learner:
         self,
         inp_learning_rate_OPT=None, # Between 0 and 1 - how quickly the Q-table updates with information it observes
         inp_rewards_rate_OPT=None, # Between 0 and 1 - how much future calculated rewards are worth to the Q-table
-        inp_random_action_rate_OPT=None, # Between 0 and 1 - how often the learner takes random actions when starting out
-        inp_random_action_decay_OPT=None # Between 0 and 1 - the quickly the learner stops taking random actions as it learns
+        inp_exploration_rate_OPT=None, # Between 0 and 1 - how often the learner takes random actions when starting out
+        inp_exploration_rate_decay_OPT=None # Between 0 and 1 - the quickly the learner stops taking random actions as it learns
     ):
         # Update optional class variables
         for arg_name, arg_value in locals().items():
@@ -109,8 +109,8 @@ class Q_Learner:
         s += f"{self.total_actions=}\n"
         s += f"{self.learning_rate=}\n"
         s += f"{self.rewards_rate=}\n"
-        s += f"{self.random_action_rate=}\n"
-        s += f"{self.random_action_decay=}\n"
+        s += f"{self.exploration_rate=}\n"
+        s += f"{self.exploration_rate_decay=}\n"
         return s
 
     ###### ~~~~~~~~~~~~~~~~~~~~~~~~~~ ######
@@ -126,9 +126,9 @@ class Q_Learner:
         # Determine if a random action will be taken
         rng = random.random()
         if training:
-            self.random_action_rate *= self.random_action_decay
+            self.exploration_rate *= self.exploration_rate_decay
 
-        if rng < self.random_action_rate and training:
+        if rng < self.exploration_rate and training:
             action = random.randint(0, self.total_actions - 1)
         else:
             # If not a random action, pick the best action based on the Q-Table for the current state

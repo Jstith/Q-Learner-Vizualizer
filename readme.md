@@ -2,6 +2,8 @@
 
 This is a little pet project to visualize how a simple Q-learner works, specifically in the context of a path-finding algorithm. I learned about Q-learning in an online course, but I was pretty disappointing in the visualization provided to study / test Q-learning. So, I decided to re-write a Q-learner from scratch and create a visual environment around it to help visualize and understand the development of Q-tables as an entity explores its environment.
 
+![](static/training.gif)
+
 This project implements basic Q-learning to solve randomly generated mazes, visually demonstrating the development of the Q-table is it progresses.
 
 ## How to use
@@ -40,3 +42,7 @@ The entity is the green square in the visualization, and it's goal is to reach t
     - Each time the entity enters the state, the reward value from the Q-learner previously used to determine the action to enter that space is recorded and written on the square
     - Additionally, the direction of the state from which that value was derived is also recorded to aid visual understanding.
     - As the model trains, you can see a "reverse snake" of positive weights form from the goal moving back to the starting point. 
+
+![](static/trained.gif)
+
+*Note: There's a bug in the GIFs where the exploration rate isn't reducing. That's fixed in the current version of the code.*
